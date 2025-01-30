@@ -1,6 +1,7 @@
 import { useCallback } from 'react';
 import { Engine } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
+import Particles from "react-tsparticles"; // Update this import
 
 interface ParticleBackgroundProps {
   theme: 'dark' | 'light';
@@ -12,9 +13,8 @@ export function ParticleBackground({ theme }: ParticleBackgroundProps) {
   }, []);
 
   return (
-    <div className="fixed inset-0 -z-10">
-      {/* @ts-ignore - type definitions issue with latest version */}
-      <tsParticles
+    <div className="fixed inset-0">
+      <Particles // Update this component
         id="tsparticles"
         init={particlesInit}
         options={{
